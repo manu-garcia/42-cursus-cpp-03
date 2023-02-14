@@ -13,7 +13,7 @@ ClapTrap::ClapTrap() : name("Default Name"),
                        energyPoints(DEFAULT_ENERGY_POINTS),
                        attackDamage(DEFAULT_ATTACK_DAMAGE)
 {
-    std::cout << name << ": Default constructor called." << std::endl;
+    std::cout << name << ": Default ClapTrap constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name),
@@ -21,18 +21,18 @@ ClapTrap::ClapTrap(std::string name) : name(name),
                                        energyPoints(DEFAULT_ENERGY_POINTS),
                                        attackDamage(DEFAULT_ATTACK_DAMAGE)
 {
-    std::cout << name << ": Non-Default constructor called." << std::endl;
+    std::cout << name << ": Non-Default ClapTrap constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 {
     *this = clapTrap;
-    std::cout << name << ": Copy constructor called." << std::endl;
+    std::cout << name << ": Copy ClapTrap constructor called." << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << name << ": Destructor called." << std::endl;
+    std::cout << name << ": ClapTrap destructor called." << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap)
     energyPoints = clapTrap.getEnergyPoints();
     attackDamage = clapTrap.getAttackDamage();
 
-    std::cout << name << ": Copy operator called." << std::endl;
+    std::cout << name << ": ClapTrap copy operator called." << std::endl;
 
     return *this;
 }
@@ -58,7 +58,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap)
 void ClapTrap::attack(const std::string &target) const
 {
     std::cout << name << ": attacks " << target << ", causing "
-              << attackDamage << " points of damage!" << std::endl;
+              << attackDamage << " points of ClapTrap damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

@@ -1,7 +1,8 @@
-NAME 		= clap_trap
+NAME 		= scav_trap
 SRC_DIR		= ./
 SRC 		= 	$(SRC_DIR)/main.cpp \
 				$(SRC_DIR)/ClapTrap.cpp \
+				$(SRC_DIR)/ScavTrap.cpp \
 
 CC 			= clang++
 INCLUDES	= 
