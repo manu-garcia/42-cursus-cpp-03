@@ -1,81 +1,40 @@
 #include <iostream>
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-static void clapTrapTest(void)
+static void showPolymorphicTrapInfo(ClapTrap &clapTrap)
 {
-    ClapTrap rebel("Rebel");
-    ClapTrap empire("Empire");
+    std::cout << clapTrap.getName() << ": main::has " << clapTrap.getHitPoints() << " hit points." << std::endl;
+    std::cout << clapTrap.getName() << ": main::has " << clapTrap.getEnergyPoints() << " energy points." << std::endl;
+    std::cout << clapTrap.getName() << ": main::has " << clapTrap.getAttackDamage() << " attack damage points." << std::endl;
+    clapTrap.attack(clapTrap.getName());
+    clapTrap.takeDamage(clapTrap.getAttackDamage());
+    clapTrap.beRepaired(10);
 
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    empire.beRepaired(1);
-
-    empire.attack(rebel.getName());
-    rebel.takeDamage(empire.getAttackDamage());
-    rebel.beRepaired(1);
-    std::cout << '\n';
-
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    std::cout << '\n';
-}
-
-static void scavTrapTest(void)
-{
-    ScavTrap rebel("Rebel");
-    ScavTrap empire("Empire");
-
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    empire.beRepaired(1);
-
-    empire.attack(rebel.getName());
-    rebel.takeDamage(empire.getAttackDamage());
-    rebel.beRepaired(1);
-    std::cout << '\n';
-
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    std::cout << '\n';
-
-    rebel.guardGate();
-    std::cout << '\n';
-}
-
-static void fragTrapTest(void)
-{
-    FragTrap rebel("Rebel");
-    FragTrap empire("Empire");
-
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    empire.beRepaired(1);
-
-    empire.attack(rebel.getName());
-    rebel.takeDamage(empire.getAttackDamage());
-    rebel.beRepaired(1);
-    std::cout << '\n';
-
-    rebel.attack(empire.getName());
-    empire.takeDamage(rebel.getAttackDamage());
-    std::cout << '\n';
-
-    rebel.highFivesGuys();
-    std::cout << '\n';
+    std::cout << std::endl;
 }
 
 int main(void)
 {
-    clapTrapTest();
-    std::cout << '\n';
+    ScavTrap scavTrap("ScavTrap Rebel");
+    showPolymorphicTrapInfo(scavTrap);
 
-    scavTrapTest();
-    std::cout << '\n';
+    FragTrap fragTrap("FragTrap Rebel");
+    showPolymorphicTrapInfo(fragTrap);
 
-    fragTrapTest();
+    DiamondTrap diamondTrap("Diamond Rebel");
+    showPolymorphicTrapInfo(diamondTrap);
+
+    std::cout << "main:: Specific methods:" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "main:: DiamondTrap::whoAmI" << std::endl;
+	diamondTrap.whoAmI();
+    std::cout << std::endl;
+
+    std::cout << "main:: DiamondTrap::highFivesGuys" << std::endl;
+	diamondTrap.highFivesGuys();
+    std::cout << std::endl;
 
     return 0;
 }

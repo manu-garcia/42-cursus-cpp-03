@@ -1,13 +1,14 @@
-NAME 		= frag_trap
+NAME 		= diamond_trap
 SRC_DIR		= ./
 SRC 		= 	$(SRC_DIR)/main.cpp \
 				$(SRC_DIR)/ClapTrap.cpp \
 				$(SRC_DIR)/ScavTrap.cpp \
 				$(SRC_DIR)/FragTrap.cpp \
+				$(SRC_DIR)/DiamondTrap.cpp \
 
 CC 			= clang++
 INCLUDES	= 
-CFLAGS 		= -Wall -Werror -Wextra -std=c++98 $(INCLUDES)
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98 -Wshadow $(INCLUDES)
 OBJECTS		= 	$(SRC:.cpp=.o)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp

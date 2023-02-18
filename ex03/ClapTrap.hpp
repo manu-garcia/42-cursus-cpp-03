@@ -19,14 +19,19 @@ public:
 
     ClapTrap &operator=(const ClapTrap &clapTrap);
 
-    void attack(const std::string &target) const;
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    virtual void attack(const std::string &target) const;
+    virtual void takeDamage(unsigned int amount);
+    virtual void beRepaired(unsigned int amount);
 
-    std::string getName(void) const;
-    unsigned int getHitpoints(void) const;
-    unsigned int getEnergyPoints(void) const;
-    unsigned int getAttackDamage(void) const;
+    virtual std::string getName(void) const;
+    virtual unsigned int getHitPoints(void) const;
+    virtual unsigned int getEnergyPoints(void) const;
+    virtual unsigned int getAttackDamage(void) const;
+
+    virtual void setName(std::string newName);
+    virtual void setHitPoints(unsigned int newHitpoints);
+    virtual void setEnergyPoints(unsigned int newEnergyPoints);
+    virtual void setAttackDamage(unsigned int newAttackDamage);
 };
 
 #endif

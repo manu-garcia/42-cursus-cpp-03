@@ -10,29 +10,31 @@
 
 ScavTrap::ScavTrap() : ClapTrap("ScavTrap Default Name")
 {
+    name = ClapTrap::getName();
     hitpoints = DEFAULT_HIT_POINTS;
     energyPoints = DEFAULT_ENERGY_POINTS;
     attackDamage = DEFAULT_ATTACK_DAMAGE;
-    std::cout << name << ": Default ScavTrap constructor called." << std::endl;
+    std::cout << name << ": ScavTrap::Default ScavTrap constructor called." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string newName) : ClapTrap(newName)
 {
+    name = ClapTrap::getName();
     hitpoints = DEFAULT_HIT_POINTS;
     energyPoints = DEFAULT_ENERGY_POINTS;
     attackDamage = DEFAULT_ATTACK_DAMAGE;
-    std::cout << name << ": Non-Default ScavTrap constructor called." << std::endl;
+    std::cout << name << ": ScavTrap::Non-Default ScavTrap constructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scavTrap)
 {
     *this = scavTrap;
-    std::cout << name << ": Copy ScavTrap constructor called." << std::endl;
+    std::cout << name << ": ScavTrap::Copy ScavTrap constructor called." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << name << ": ScavTrap destructor called." << std::endl;
+    std::cout << name << ": ScavTrap:: destructor called." << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,11 +44,11 @@ ScavTrap::~ScavTrap()
 ScavTrap &ScavTrap::operator=(const ScavTrap &scavTrap)
 {
     name = scavTrap.getName();
-    hitpoints = scavTrap.getHitpoints();
+    hitpoints = scavTrap.getHitPoints();
     energyPoints = scavTrap.getEnergyPoints();
     attackDamage = scavTrap.getAttackDamage();
 
-    std::cout << name << ": ScavTrap copy operator called." << std::endl;
+    std::cout << name << ": ScavTrap:: copy operator called." << std::endl;
 
     return *this;
 }
@@ -57,12 +59,21 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scavTrap)
 
 void ScavTrap::attack(const std::string &target) const
 {
-    std::cout << name << ": attacks " << target << ", causing "
+    std::cout << name << ": ScavTrap::attacks " << target << ", causing "
               << attackDamage << " points of ScavTrap damage!" << std::endl;
+}
+
+// In a polymorfic call of a ScavTrap object casted to ClapTrap, the compiler
+// will call this ScavTrap method and not the ClapTrap::getEnergyPoints.
+// Also the property energyPoints is stored at the ScavTrap level so it does
+// not get shared or overrided by with FragTrap.
+unsigned int ScavTrap::getEnergyPoints() const
+{
+    return energyPoints;
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << name << ": ScavTrap have enterred in Gate keeper mode." << std::endl;
+    std::cout << name << ": ScavTrap::ScavTrap have enterred in Gate keeper mode." << std::endl;
     return;
 }

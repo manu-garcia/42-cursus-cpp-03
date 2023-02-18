@@ -3,20 +3,20 @@
 
 #include <iostream>
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-class FragTrap: public ScavTrap
+class FragTrap: virtual public ClapTrap
 {
 
 public:
     FragTrap();
     FragTrap(std::string name);
-    FragTrap(const FragTrap &scavTrap);
+    FragTrap(const FragTrap &fragTrap);
     ~FragTrap();
 
-    FragTrap &operator=(const FragTrap &scavTrap);
+    FragTrap &operator=(const FragTrap &fragTrap);
 
-    void attack(const std::string &target) const;
+    virtual void attack(const std::string &target) const;
     void highFivesGuys();
 };
 

@@ -8,7 +8,7 @@
 // Constructors / Destructor
 ///////////////////////////////////////////////////////////////////////////////
 
-FragTrap::FragTrap() : ScavTrap("FragTrap Default Name")
+FragTrap::FragTrap() : ClapTrap("FragTrap Default Name")
 {
     hitpoints = DEFAULT_HIT_POINTS;
     energyPoints = DEFAULT_ENERGY_POINTS;
@@ -16,7 +16,7 @@ FragTrap::FragTrap() : ScavTrap("FragTrap Default Name")
     std::cout << name << ": Default FragTrap constructor called." << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ScavTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     hitpoints = DEFAULT_HIT_POINTS;
     energyPoints = DEFAULT_ENERGY_POINTS;
