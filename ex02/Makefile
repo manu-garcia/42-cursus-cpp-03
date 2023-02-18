@@ -1,8 +1,9 @@
-NAME 		= scav_trap
+NAME 		= frag_trap
 SRC_DIR		= ./
 SRC 		= 	$(SRC_DIR)/main.cpp \
 				$(SRC_DIR)/ClapTrap.cpp \
 				$(SRC_DIR)/ScavTrap.cpp \
+				$(SRC_DIR)/FragTrap.cpp \
 
 CC 			= clang++
 INCLUDES	= 
