@@ -75,5 +75,4 @@ unsigned int ScavTrap::getEnergyPoints() const
 void ScavTrap::guardGate()
 {
     std::cout << name << ": ScavTrap::ScavTrap have enterred in Gate keeper mode." << std::endl;
-    return;
 }
